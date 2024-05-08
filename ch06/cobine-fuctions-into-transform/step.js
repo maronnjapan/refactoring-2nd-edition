@@ -41,7 +41,7 @@ var basicChargeAmount = calculateBaseCharge(_aReading3);
  * STEP-3 関数の移動
  * enrichReading関数に処理を移動
  */
-var _enrichReading = (original) => {
+var enrichReading = (original) => {
   var result = _.cloneDeep(original);
   result.baseCharge = calculateBaseCharge(result);
   return result;
@@ -51,7 +51,7 @@ var _enrichReading = (original) => {
  *  client3 に適用
  */
 var rawReading = acquireReading();
-var aReading3 = _enrichReading(rawReading);
+var aReading3 = enrichReading(rawReading);
 var basicChargeAmount = aReading3.baseCharge;
 
 /**
