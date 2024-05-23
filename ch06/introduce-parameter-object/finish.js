@@ -16,17 +16,12 @@ class NumberRange {
   }
 }
 
+const readingsOutsideRange = (station, range) =>
+  station.readings.filter((r) => !range.contains(r.temp));
+
 const range = new NumberRange(
   operatingPlan.temperatureFloor,
   operatingPlan.temperatureCeiling
 );
 
-const alerts = readingsOutsideRange(
-  station,
-  operatingPlan.temperatureFloor,
-  operatingPlan.temperatureCeiling,
-  range
-);
-
-const readingsOutsideRange = (station, range) =>
-  station.readings.filter((r) => !range.contains(r.temp));
+const alerts = readingsOutsideRange(station, range);
