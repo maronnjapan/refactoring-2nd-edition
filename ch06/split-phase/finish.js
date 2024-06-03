@@ -1,11 +1,5 @@
 const priceOrder = (product, quantity, shippingMethod) => {
-  const basePrice = product.basePrice * quantity;
-  const discount =
-    Math.max(quantity - product.discountThreshold, 0) *
-    product.basePrice *
-    product.discountRate;
-
-  const priceData = { basePrice, quantity, discount };
+  const priceData = calculatePriceingData(product, quantity);
 
   return applyShipping(priceData, shippingMethod, discount);
 };
